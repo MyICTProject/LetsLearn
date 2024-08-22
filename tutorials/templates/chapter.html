@@ -1,0 +1,181 @@
+{%extends 'backend.html'%}
+{%load static%}
+
+{%block content%}
+{%include 'navbar3.html'%}
+<div class="grid-container">
+        <aside id="sidebar" class="expand">
+            <ul class="sidebar-nav">
+                {%for unit in data%}
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#auth" aria-expanded="true" aria-controls="auth">
+                        <span>{{unit.title}}</span>
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+                        {%for chapter in unit.chapters%}
+                        <li class="sidebar-item">
+                            <a href="{%url 'tutorial:chapter' name=name slug=chapter.slug%}" class="sidebar-link">{{chapter.title}}</a>
+                        </li>
+                        <p></p>
+                        {%endfor%}
+                    </ul>
+                </li>
+                {%endfor%}
+              
+            </ul>
+        </aside>
+    <div class="content">
+ <div class="container-lg container-fluid">
+    <div class="content-flex">
+<div class="content-flex-main">
+    <div class="title">
+        <h1>{{ch.title}}</h1> 
+    </div>
+    <div>
+
+    </div>
+    {{ch.desc |safe}}
+    <div class="embed">
+        <iframe class="iframe" src="{{ch.video}}" frameborder="0"></iframe>
+    </div>
+    <div>
+        {{ch.conclusion |safe}}
+    </div>
+    <div class="navigation">
+        {%if previous%}
+        <button class="btn btn-success btn-lg button"> <a class="null-a" href="{%url 'tutorial:chapter' name=previous.id slug=previous.chapter.slug%}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></button>
+        {%else%}
+        <button class="btn btn-success disabled button btn-lg"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        {%endif%}
+        {%if next%}
+        <button class="btn btn-success btn-lg button"><a class="null-a" href="{%url 'tutorial:chapter' name=next.id slug=next.chapter.slug%}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></button>
+        {%else%}
+        <button class="btn btn-success disabled btn-lg button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+        {%endif%} 
+    </div>
+</div>
+<div class="content-flex-side">
+    
+</div>
+    </div>
+ </div>
+ <section class="whyUs-section fixer">
+    <div class="cont">
+        <div class="featured-points">
+            <ul>
+                <li><i class="fas fa-money-check-alt"></i> completely Free </li>
+                <li><i class="fas fa-book"></i>aceessible with easy</li>
+                <li><i class="fas fa-chalkboard-teacher"></i> orginized with chapters and units</li>
+                <li> <i class="fas fa-book"></i> amazing projects at the end of each unit</li>
+            </ul>
+        </div>
+        <div class="whyus-wrap">
+            <h1>About Me?</h1>
+            <p itemprop="description">I am a lone programmer that just wanted to organize the amazing different tutorial avaliable on youtube when you go to the tutorial side you will see what I am talking about but try to enjoy it it is completely free and good luck</p>
+
+        </div>
+    </div>
+</section>
+    </div>
+</div>
+<script>
+        if(window.innerWidth < 820){
+    document.querySelector("#sidebar").classList.remove("expand");
+}
+    const hamBurger = document.querySelector(".toggle-btn");
+
+hamBurger.addEventListener("click", function () {
+  document.querySelector("#sidebar").classList.toggle("expand");
+});
+
+</script>
+{%endblock%}
+{%block js%}
+<style>
+    .navigation{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .button{
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .fixer{
+        margin: 0 -15px;
+        margin-top: 2.5rem;
+    }
+    .null-a{
+        all:unset;
+    }
+    .embed{
+        width:100%;
+        height: 450px;
+        margin: auto;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .iframe{
+        width: 100%;
+        height: 100%;
+    
+    }
+    .content-flex{
+        display: flex;
+    }
+
+    @media screen and (max-width:1024px) {
+        .content-flex{
+            flex-direction: column-reverse;
+        }
+        .content-flex-main{
+            width: 100%;
+        }
+        .content-flex-side{
+            width: 100%;
+        }
+    }
+    @media screen and (min-width:1024px) {
+        .content-flex-main{
+            width: 80%;
+        }
+        .content-flex-side{
+            width: 20%;
+            padding-top: 4rem;
+            border-left: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    @media screen and (max-width:560px) {
+        .embed {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; 
+  height: auto !important;/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+} 
+    }
+
+</style>
+<link rel="stylesheet" href="{%static 'chapter/chapter.css'%}">
+{%endblock%}

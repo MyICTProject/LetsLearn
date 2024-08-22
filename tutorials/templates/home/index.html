@@ -1,0 +1,190 @@
+{%extends 'backend.html'%}
+{%load static%}
+{%block content%}
+<div id="page" class="site" style="display: none;" itemscope itemtype="http://schema.org/LocalBusiness">
+
+    {%include 'navbar.html'%}
+    <!-- Header Close -->
+    <div class="banner">
+        <div class="owl-four owl-carousel top" itemprop="image">
+            <img src="{% static 'images/five.webp'%}" alt="Image of Bannner">
+            <img src="{% static 'images/three.jpg'%}" alt="Image of Bannner">
+            <img src="{% static 'images/six.jfif'%}" alt="Image of Bannner">
+        </div>
+        <div class="cont promo" itemprop="description">
+            <h1>welcome to LetsLearn</h1>
+            <h3>Scroll down and see what you want to learn and if you can't find it request the course</h3>
+        </div>
+         <div id="owl-four-nav" class="owl-nav"></div>
+    </div>
+    <div class="container">
+        <div class="d-flex mt-5 pt-5 mb-5 ">
+            <img class="light-img" src="{%static 'images/what you will learn.jpg'%}" alt="">
+            <div>
+                <h2 class="light-h2">What is this website ?</h2>
+                <p class="light-p">It is a simple website created for the purpose of helping my fellow programs in there Journey of learning by compiling and ordering the videos available online.It is free and very easily accessable as all the videos and links you will find on the tutorials are from youtube or other website that give amazing help for programmers, if the toutorials aren't to your liking you can also send me a message and I will try to improve it as fast as possible. hope you enjoy the tutorials and Before I forget if you truly enjoy and appreciate the work done here try to help by motivating me with a drink. Account is at the bottom Thanks &#128514;</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-heading">
+        <div class="cont">
+            <h2>popular courses</h2>
+        </div>
+    </div>
+    <!-- Popular courses End -->
+    <div class="learn-courses">
+        <div class="cont ">
+            <div class="courses">
+                <div class="owl-one owl-carousel">
+                    {%for o in obj%}
+                    <div class="box-wrap" itemprop="event" itemscope>
+                        <div class="img-wrap"  itemprop="image"><img class="img-self" src="{%get_media_prefix%}{{o.image}}" alt="courses picture"></div>
+                            <a href="{%url 'tutorial:course' name=o.id %}" class="learn-desining-banner" itemprop="name">Go To {{o.name}} ></a>
+                        <div class="box-body" itemprop="description">
+                            <p>{{o.desc}}</p>
+                            <section itemprop="time">
+                                <p><span>Date:</span> {{o.date}}</p>
+                            </section>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="request-main mb-5">
+    <h2 class="text-center mb-5 mt-5">Requested Course</h2>
+    <div class="container d-flex justify-content-center pb-5 pt-2">
+        <div class="owl-carousel owl-theme">
+            {%for i in req%}
+            <div class="item item-container">
+                <p class="req-name">{{i.name}}</p>
+                <p class="req-coursename">{{i.courseName}}</p>
+                <p class="req-desc">"{{i.desc}}"</p>
+                <p class="req-date">{{i.date}}</p>
+            </div>
+            {%endfor%}
+
+        </div>
+    </div>
+</div>
+    <!-- Learn courses End -->
+    <section class="whyUs-section">
+        <div class="cont">
+            <div class="featured-points">
+                <ul>
+                    <li><i class="fas fa-money-check-alt"></i> completely Free </li>
+                    <li><i class="fas fa-book"></i>aceessible with easy</li>
+                    <li><i class="fas fa-chalkboard-teacher"></i> orginized with chapters and units</li>
+                    <li> <i class="fas fa-book"></i> amazing projects at the end of each unit</li>
+                </ul>
+            </div>
+            <div class="whyus-wrap">
+                <h1>About Me?</h1>
+                <p itemprop="description" style="margin-bottom: 2rem;">I am a lone programmer that just wanted to organize the amazing different tutorial avaliable on youtube when you go to the tutorial side you will see what I am talking about but try to enjoy it it is completely free and good luck</p>
+            </div>
+        </div>
+    </section>
+    <div class="d-flex bg-dark">
+        <ul class="bank-info">
+            <li>Abyssinia bank - 133727515 </li>
+            <li>Commercial Bank - 1000538264184 </li>
+        </ul>
+    </div>
+</div>
+
+
+{%endblock%}
+{%block css%}
+<script>
+    window.onload = function(){
+        setTimeout(function(){
+            document.getElementById('page').style.display ='block'
+        },100)
+    }
+    $('.owl-carousel').owlCarousel({
+loop:true,
+margin:25,
+nav:true,
+responsive:{
+    300:{
+        items:1
+    },
+    600:{
+        items:2
+    },
+    900:{
+        items:3
+    }
+}
+})
+</script>
+{%endblock%}
+{%block js%}
+    <style>
+        .light-img{
+            width: 350px;
+            height: 300px;
+            object-fit: cover;
+        }
+        	.img-self{
+		height: 350px;
+        object-fit:cover;
+	}
+    @media screen and (max-width:765px) {
+        .img-self {
+    height: 300px;
+    object-fit: cover;
+}
+    }
+    .item-container{
+        border: 1px solid #eeeeee;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    .request-main h2{
+        font-size: 3rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    }
+    .req-name{
+        font-size: 2.5rem;
+    font-family: "Raleway", sans-serif;
+    color: #000000;  
+    text-align: center;
+    }
+    .light-p{
+        font-size: 1.8rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #000000;  
+    }
+    .light-h2{
+        font-size: 3.5rem;
+    font-family: helvetica, sans-serif;
+    color: #000000;  
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    }
+    .req-coursename{
+        font-size: 2rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    color: #000;  
+    }
+    .req-desc{
+        font-size: 1.3rem;
+    font-family: "Raleway", sans-serif;
+    color: #000;  
+    }
+    .req-date{
+        font-size: 1.4rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #000;   
+    text-align: end;
+    }
+
+    </style>
+
+{%endblock%}
