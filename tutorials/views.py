@@ -102,3 +102,5 @@ def courseRequest(request):
             return redirect("tutorial:home")
         return render(request,"request.html",{'form':form})
     return render(request,"request.html",{'form':myform})
+def privacy(request):
+    return render(request,'privacy.html')

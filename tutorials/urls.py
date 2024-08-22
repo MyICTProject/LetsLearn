@@ -9,5 +9,6 @@ urlpatterns = [
     path('tutorial/<int:name>/<str:slug>',showchap,name='chapter'),
     path('collection',showCollection,name='collection'),
     path('404',sorryPagenotFound,name='404'),
-    path('request',courseRequest,name='request')
+    path('request',courseRequest,name='request'),
+    path('privacy',privacy)
 ]
