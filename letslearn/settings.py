@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4z10ij*byqtj68dd#vr*^kw26h@2##vw-+fb11x4crx*^m49et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['letslearncoding.pythonanywhere.com/']
+ALLOWED_HOSTS = ['letslearncoding.pythonanywhere.com']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "tutorials",
-    'ckeditor',   
+    'ckeditor',
     "crispy_forms",
     "crispy_bootstrap5",
 ]
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'letslearn.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        'NAME': 'letslearn',
-        'USER': 'root',
-        'PASSWORD': '1234567890',
-        'HOST': 'localhost',
+        'NAME': 'letsLearnCoding$letslearn',
+        'USER': 'letsLearnCoding',
+        'PASSWORD': 'mypasswordis1234',
+        'HOST': 'letsLearnCoding.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
