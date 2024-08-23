@@ -15,7 +15,11 @@
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
                         {%for chapter in unit.chapters%}
                         <li class="sidebar-item">
-                            <a href="{%url 'tutorial:chapter' name=name slug=chapter.slug%}" class="sidebar-link">{{chapter.title}}</a>
+                            {%if ch.title == chapter.title%}
+                            <a href="{%url 'tutorial:chapter' name=name slug=chapter.slug%}" class="sidebar-link active-side-link">{{chapter.title}}</a>
+                            {%else%}
+                            <a href="{%url 'tutorial:chapter' name=name slug=chapter.slug%}" class="sidebar-link ">{{chapter.title}}</a>
+                            {%endif%}
                         </li>
                         <p></p>
                         {%endfor%}
@@ -101,6 +105,8 @@ hamBurger.addEventListener("click", function () {
     }
     pre{
         font-size: 14px;
+        margin-top: 1.2rem !important;
+        margin-bottom: 1.2rem !important;
     }
     .button{
         border-radius: 50%;
@@ -143,7 +149,9 @@ hamBurger.addEventListener("click", function () {
         line-height: 24px;
         font-size: 16px;
     }
-
+    .content-flex img{
+        object-fit: contain;
+    }
     @media screen and (max-width:1024px) {
         .content-flex{
             flex-direction: column-reverse;
