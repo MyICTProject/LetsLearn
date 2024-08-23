@@ -3,6 +3,10 @@
 
 {%block content%}
 {%include 'navbar3.html'%}
+{%block js%}
+<link rel="stylesheet" href="{%static 'chapter/chapter.css'%}">
+<meta name="keywords" content="Ethiopia Web development,web development,CSS,HTML,JavaScript,learn web development,{{ch.title}},{{tutorialname}}">
+{%endblock%}
 <div class="grid-container">
         <aside id="sidebar" class="expand">
             <ul class="sidebar-nav">
@@ -95,7 +99,7 @@ hamBurger.addEventListener("click", function () {
 
 </script>
 {%endblock%}
-{%block js%}
+{%block css%}
 <style>
     .navigation{
         display: flex;
@@ -105,8 +109,8 @@ hamBurger.addEventListener("click", function () {
     }
     pre{
         font-size: 14px;
-        margin-top: 1.2rem !important;
-        margin-bottom: 1.2rem !important;
+        margin-top: 3rem !important;
+        margin-bottom: 3.4rem !important;
     }
     .button{
         border-radius: 50%;
@@ -140,7 +144,7 @@ hamBurger.addEventListener("click", function () {
         display: flex;
     }
     .content-flex h3{
-        margin-bottom: 1.5rem;
+        margin-bottom: 2.2rem;
     }
     .content-flex p{
         margin-bottom: 1.2rem !important;
@@ -199,5 +203,4 @@ hamBurger.addEventListener("click", function () {
     }
 
 </style>
-<link rel="stylesheet" href="{%static 'chapter/chapter.css'%}">
 {%endblock%}

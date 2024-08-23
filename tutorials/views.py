@@ -84,7 +84,7 @@ def showchap(request,name,slug):
             "chapters" : chapters
         }
         obj.append(objs)
-    return render(request,'chapter.html',{'data':obj,'ch':chapter,'name':name,"next":next,"previous":previous})
+    return render(request,'chapter.html',{'data':obj,'ch':chapter,'tutorialname':tut.name,'name':name,"next":next,"previous":previous})
 
 def showCollection(request):
     obj = collection.objects.all()
