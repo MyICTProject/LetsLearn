@@ -186,10 +186,11 @@ a.sidebar-link:hover {
     padding-bottom: 0px;
 }
 .content .title{
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
 }
 .title h1{
-    font-size: 2,5rem;
+    font-size: 3.2rem;
     padding-top: 2.7rem;
     padding-left: 0;
     padding-bottom: 0.5rem;

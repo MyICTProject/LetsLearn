@@ -96,9 +96,11 @@ hamBurger.addEventListener("click", function () {
     .navigation{
         display: flex;
         justify-content: space-between;
-        padding-right: 5rem;
         margin-top: 2rem;
         margin-bottom: 2rem;
+    }
+    pre{
+        font-size: 14px;
     }
     .button{
         border-radius: 50%;
@@ -119,7 +121,6 @@ hamBurger.addEventListener("click", function () {
     }
     .embed{
         height: 450px;
-        margin-right: 2rem !important;
         margin: auto;
         margin-top: 5rem;
         margin-bottom: 5rem;
@@ -138,6 +139,9 @@ hamBurger.addEventListener("click", function () {
     .content-flex p{
         margin-bottom: 1.2rem !important;
         margin-top: 1.2rem !important;
+        color: #494949;
+        line-height: 24px;
+        font-size: 16px;
     }
 
     @media screen and (max-width:1024px) {
@@ -146,6 +150,7 @@ hamBurger.addEventListener("click", function () {
         }
         .content-flex-main{
             width: 100%;
+            margin-right: 2rem;
         }
         .content-flex-side{
             width: 100%;
@@ -154,6 +159,7 @@ hamBurger.addEventListener("click", function () {
     @media screen and (min-width:1024px) {
         .content-flex-main{
             width: 80%;
+            margin-right: 2rem;
         }
         .content-flex-side{
             width: 20%;
