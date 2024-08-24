@@ -8,7 +8,7 @@ class Chapter(models.Model):
     title = models.CharField(max_length=45)
     desc = RichTextField()
     video = models.URLField(max_length=500,null=True,blank=True)
-    conclusion = RichTextField()
+    conclusion = RichTextField(blank=True)
     identifier = models.CharField(max_length=200,null=True)
     slug =models.CharField(unique=True,null=True,blank=True,max_length=250)
     def __str__(self) -> str:

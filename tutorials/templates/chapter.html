@@ -44,9 +44,12 @@
 
     </div>
     {{ch.desc |safe}}
+    {%if ch.video%}
     <div class="embed">
         <iframe class="iframe" src="{{ch.video}}" frameborder="0"></iframe>
+
     </div>
+    {%endif%}
     <div>
         {{ch.conclusion |safe}}
     </div>
