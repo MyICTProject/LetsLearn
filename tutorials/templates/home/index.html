@@ -1,7 +1,7 @@
 {%extends 'backend.html'%}
 {%load static%}
 {%block content%}
-<div id="page" class="site" style="display: none;" itemscope itemtype="http://schema.org/LocalBusiness">
+<div id="page" class="site" style="display: none;">
 
     {%include 'navbar.html'%}
     <!-- Header Close -->
@@ -37,7 +37,7 @@
             <div class="courses">
                 <div class="owl-one owl-carousel">
                     {%for o in obj%}
-                    <div class="box-wrap" itemprop="event" itemscope>
+                    <div class="box-wrap" itemscope>
                         <div class="img-wrap"  ><img  itemprop="image" class="img-self" src="{%get_media_prefix%}{{o.image}}" alt="courses picture"></div>
                         <a href="{%url 'tutorial:course' name=o.id %}" class="learn-desining-banner" itemprop="location">Go To <span itemprop="name">{{o.name}}</span> ></a>
                         <div class="box-body" >
