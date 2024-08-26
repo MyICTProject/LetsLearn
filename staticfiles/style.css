@@ -3577,7 +3577,7 @@ RESPONSIVE STYLESHEET
         font-size: 2.5rem !important;
     }
 	.title h1{
-		padding-top: 2rem;
+		padding-top: 2rem !important;
 	}
 	.content .title{
         margin-bottom: 2rem !important;
