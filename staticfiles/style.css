@@ -841,7 +841,7 @@ ul > li {
 	text-align: center;
 	/*padding-top: 6em;*/
 	/*padding-bottom: 4.687em;*/
-	padding-top: 6.25em;
+	padding-top: 3.25em;
 	padding-bottom: 4.375em;
 }
 
@@ -3553,9 +3553,18 @@ RESPONSIVE STYLESHEET
 }
 
 @media  screen and (max-width:376px){
+	.entry{
+		font-size: 3rem !important;
+	}
+	.length{
+		max-width: 80% !important;
+	}
     #bar{
         font-size: 25px !important;
     }
+	.img-self {
+		height: 250px !important;
+	}
 	#close{
 		font-size: 25px !important;
 	}
@@ -3569,12 +3578,15 @@ RESPONSIVE STYLESHEET
     }
     .light-img{
         margin-bottom: 2rem !important;
+		width: 100%!important;
+		height: 250px !important;
     }
     .light-p{
-        font-size: 1.4rem !important;
+        font-size: 1.8rem !important;
     }
     .light-h2{
-        font-size: 2.5rem !important;
+        font-size: 3rem !important;
+		text-transform: capitalize;
     }
 	.title h1{
 		padding-top: 2rem !important;
