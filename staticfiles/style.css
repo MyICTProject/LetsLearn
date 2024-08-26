@@ -3564,11 +3564,11 @@ RESPONSIVE STYLESHEET
         height: 30px  !important;
     }
     .banner .cont h1{
-        font-size: 2.2rem;
-        margin-top: 1.5em;
+        font-size: 2.2rem !important;
+        margin-top: 1.5em !important;
     }
     .light-img{
-        margin-bottom: 2rem;
+        margin-bottom: 2rem !important;
     }
     .light-p{
         font-size: 1.4rem !important;
@@ -3577,15 +3577,15 @@ RESPONSIVE STYLESHEET
         font-size: 2.5rem !important;
     }
 	.content .title{
-        margin-bottom: 2rem;
-        margin-top: 2rem;
+        margin-bottom: 2rem !important;
+        margin-top: 2rem !important;
     }
     .top-header .top-header-left{
-        height:25px;
-        padding-top: 2px;
+        height:25px !important;
+        padding-top: 2px !important;
     }
     .top-header .top-header-right{
-        height: 35px;
-        padding-top: 2px;
+        height: 35px !important;
+        padding-top: 2px !important;
     }
 }
