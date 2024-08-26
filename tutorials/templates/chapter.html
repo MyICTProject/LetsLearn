@@ -8,7 +8,7 @@
 <meta name="keywords" content="Ethiopia Web development,web development,CSS,HTML,JavaScript,learn web development,{{ch.title}},{{tutorialname}}">
 {%endblock%}
 <div class="grid-container">
-        <aside id="sidebar" class="expand">
+        <aside id="sidebar">
             <ul class="sidebar-nav">
                 {%for unit in data%}
                 <li class="sidebar-item">
@@ -97,9 +97,6 @@
     </div>
 </div>
 <script>
-window.onload = () =>{
-    document.getElementById('sidebar').classList.remove('expand')
-    }
 const hamBurger = document.querySelector(".toggle-btn");
 
 hamBurger.addEventListener("click", function () {
