@@ -3553,6 +3553,21 @@ RESPONSIVE STYLESHEET
 }
 
 @media  screen and (max-width:376px){
+	.learn-courses .learn-desining-banner{
+		left: 10% !important;
+	}
+	.learn-courses .box-wrap{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.learn-courses .box-wrap .img-wrap{
+		width: 80%;
+	}
+	.learn-courses .box-wrap .box-body{
+		width: 80%;
+		margin-top: 0.6rem;
+	}
 	.entry{
 		font-size: 3rem !important;
 	}
