@@ -8,7 +8,7 @@
 <meta name="keywords" content="Ethiopia Web development,web development,CSS,HTML,JavaScript,learn web development,{{ch.title}},{{tutorialname}}">
 {%endblock%}
 <div class="grid-container">
-        <aside id="sidebar" class="expand">
+        <aside id="sidebar">
             <ul class="sidebar-nav">
                 {%for unit in data%}
                 <li class="sidebar-item">
@@ -37,6 +37,7 @@
  <div class="container-lg container-fluid">
     <div class="content-flex">
 <div class="content-flex-main">
+
     <div class="title">
         <h1>{{ch.title}}</h1> 
     </div>
@@ -91,10 +92,8 @@
     </div>
 </div>
 <script>
-        if(window.innerWidth < 820){
-    document.querySelector("#sidebar").classList.remove("expand");
-}
-    const hamBurger = document.querySelector(".toggle-btn");
+    
+const hamBurger = document.querySelector(".toggle-btn");
 
 hamBurger.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("expand");
@@ -104,6 +103,14 @@ hamBurger.addEventListener("click", function () {
 {%endblock%}
 {%block css%}
 <style>
+    .video-go{
+        right: 12%;
+        top: 6%;
+    }
+    .video-go button{
+        font-size: 28px;
+        border-radius: 50%;
+    }
     .navigation{
         display: flex;
         justify-content: space-between;
@@ -174,6 +181,7 @@ hamBurger.addEventListener("click", function () {
         .content-flex-main{
             width: 100%;
             margin-right: 2rem;
+            position: relative;
         }
         .content-flex-side{
             width: 100%;
@@ -181,13 +189,14 @@ hamBurger.addEventListener("click", function () {
     }
     @media screen and (min-width:1024px) {
         .content-flex-main{
-            width: 80%;
+            width: 85%;
             margin-right: 2rem;
+            position: relative;
+
         }
         .content-flex-side{
-            width: 20%;
+            width: 15%;
             padding-top: 4rem;
-            border-left: 1px solid #f1f1f1;
             display: flex;
             justify-content: center;
         }
