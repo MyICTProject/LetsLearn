@@ -78,6 +78,9 @@
     </div>
  </div>
  <section class="whyUs-section fixer">
+    <div id="codepen">
+        <h1>hello</h1>
+    </div>
     <div class="cont">
         <div class="featured-points">
             <ul>
@@ -98,7 +101,11 @@
 </div>
 <script>
 const hamBurger = document.querySelector(".toggle-btn");
-
+if(window.innerWidth > 1024){
+    document.getElementById('codepen').height = "500px"
+}else{
+    document.getElementById('codepen').height = "300px"
+}
 hamBurger.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("expand");
 });
