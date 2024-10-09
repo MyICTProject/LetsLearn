@@ -43,17 +43,25 @@ def showchap(request,name,slug):
                 'chapter':previous_ch.Chapter
             }
         if(not UnitAndChapter.objects.filter(unit=c_unit,index=index_2+1).exists()):
-            next = False
-        else:
+            if(UnitAndTutorial.objects.filter(Tutorial=tut,index=index+1).exists()):
+                next_unit = UnitAndTutorial.objects.get(Tutorial=tut,index=index+1).unit
+                next_ch = UnitAndChapter.objects.get(unit=next_unit,index=1).Chapter  
+                next = {
+                "id":name,
+                'chapter':next_ch
+                }      
+        elif(UnitAndChapter.objects.filter(unit=c_unit,index=index_2+1).exists()):
             next_ch = UnitAndChapter.objects.get(unit=c_unit,index=index_2+1).Chapter  
             next = {
                 "id":name,
                 'chapter':next_ch
-            }   
+            }  
+        else:
+            next =False
     else:
         if(index_2 == 1):
             c_unit_previos =UnitAndTutorial.objects.get(Tutorial=tut,index=index-1)
-            previous_ch = UnitAndChapter.objects.get(unit=c_unit_previos.unit,index=1)
+            previous_ch = UnitAndChapter.objects.get(unit=c_unit_previos.unit,index=-1)
             previous ={
                 "id":c_unit_previos.Tutorial.id,
                 'chapter':previous_ch.Chapter
