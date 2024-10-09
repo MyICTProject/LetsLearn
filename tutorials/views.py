@@ -59,7 +59,7 @@ def showchap(request,name,slug):
                 'chapter':previous_ch.Chapter
             }
         else:
-            previous_ch = UnitAndChapter.objects.get(Unit=c_unit,index=index_2-1)
+            previous_ch = UnitAndChapter.objects.get(unit=c_unit,index=index_2-1)
             previous ={
                 "id":name,
                 'chapter':previous_ch.Chapter
