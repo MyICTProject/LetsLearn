@@ -61,7 +61,7 @@ def showchap(request,name,slug):
     else:
         if(index_2 == 1):
             c_unit_previos =UnitAndTutorial.objects.get(Tutorial=tut,index=index-1)
-            previous_ch = UnitAndChapter.objects.get(unit=c_unit_previos.unit,index=-1)
+            previous_ch = UnitAndChapter.objects.filter(unit=c_unit_previos.unit).last()
             previous ={
                 "id":c_unit_previos.Tutorial.id,
                 'chapter':previous_ch.Chapter
