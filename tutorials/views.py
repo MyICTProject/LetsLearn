@@ -71,7 +71,7 @@ def showchap(request,name,slug):
                 "id":c_unit_next.Tutorial.id,
                 'chapter':next_ch
             }           
-        else:
+        elif(UnitAndChapter.objects.filter(unit=c_unit,index=index_2+1).exists()):
             next_ch =UnitAndChapter.objects.get(unit=c_unit,index=index_2+1).Chapter  
             next = {
                 "id":name,
