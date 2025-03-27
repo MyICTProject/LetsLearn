@@ -3,12 +3,14 @@ from ckeditor.fields import RichTextField
 import datetime
 from django.template.defaultfilters import slugify
 # Create your models here.
-
+class Vedios(models.Model):
+    video = models.URLField(max_length=500,null=True,blank=True)
 class Chapter(models.Model):
     title = models.CharField(max_length=45)
-    desc = RichTextField()
+    desc = RichTextField(blank=True,null=True)
     video = models.URLField(max_length=500,null=True,blank=True)
-    conclusion = RichTextField(blank=True)
+    additional_video = models.ManyToManyField(Vedios,blank=True,null=True)
+    conclusion = RichTextField(blank=True,null=True)
     identifier = models.CharField(max_length=200,null=True)
     slug =models.CharField(unique=True,null=True,blank=True,max_length=250)
     def __str__(self) -> str:

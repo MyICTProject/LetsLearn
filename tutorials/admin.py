@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import *
 # Register your models here.
+
+@admin.register(Vedios)
+class VedioAdmin(admin.ModelAdmin):
+    list_display =('video',)
 class TeachSubjectInline(admin.TabularInline):
     model = UnitAndTutorial
     extra = 2 # how many rows to show

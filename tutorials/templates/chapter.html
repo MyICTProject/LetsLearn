@@ -49,10 +49,14 @@
     {{ch.desc |safe}}
     {%if ch.video%}
     <div id="iframe" class="embed">
-        <iframe class="iframe" src="{{ch.video}}" frameborder="0"></iframe>
-
+        <iframe id="video-holder" class="iframe" src="{{ch.video}}" frameborder="0"></iframe>
     </div>
     {%endif%}
+    <div class="d-flex justify-content-end mb-4">
+        {%for v in ch.additional_video.all %}
+        <button passive onclick="changeVideo(event)" data-id="{{v.video}}" class="lists btn border fs-5 rounded">{{forloop.counter}}</button>
+        {%endfor%}
+    </div>
     <div>
         {{ch.conclusion |safe}}
     </div>
@@ -79,7 +83,6 @@
  </div>
  <section class="whyUs-section fixer">
     <div id="codepen">
-        <h1>hello</h1>
     </div>
     <div class="cont">
         <div class="featured-points">
@@ -100,6 +103,22 @@
     </div>
 </div>
 <script>
+    function changeVideo(event){
+        var prev = document.getElementById('video-holder')
+        var holder = document.getElementById('iframe')
+        holder.removeChild(prev)
+        prev.src = event.target.dataset.id
+        holder.append(prev)
+        event.target.classList.remove('border')
+        event.target.classList.add('active-btn')
+        document.querySelectorAll('.lists').forEach(e => {
+        console.log(e)
+        if(e != event.target){
+            e.target.classList.remove('active-btn')
+            e.target.classList.add('border')
+        }
+       })
+    }
 const hamBurger = document.querySelector(".toggle-btn");
 if(window.innerWidth > 1024){
     document.getElementById('codepen').height = "500px"
@@ -114,6 +133,14 @@ hamBurger.addEventListener("click", function () {
 {%endblock%}
 {%block css%}
 <style>
+    .active-btn{
+        color: white;
+        background-color: #3674B5;
+    }
+    .active-btn:hover{
+        color: white;
+        background-color: #3674B5;   
+    }
     .video-go{
         right: 12%;
         top: 6%;
@@ -153,7 +180,7 @@ hamBurger.addEventListener("click", function () {
     .embed{
         margin: auto;
         margin-top: 3.5rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 1rem;
         width: 100%;
         height: 650px;
     }
