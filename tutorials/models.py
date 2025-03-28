@@ -4,7 +4,10 @@ import datetime
 from django.template.defaultfilters import slugify
 # Create your models here.
 class Vedios(models.Model):
+    identifier =models.CharField(max_length=250,default="Blank")
     video = models.URLField(max_length=500,null=True,blank=True)
+    def __str__(self):
+        return self.identifier
 class Chapter(models.Model):
     title = models.CharField(max_length=45)
     desc = RichTextField(blank=True,null=True)
