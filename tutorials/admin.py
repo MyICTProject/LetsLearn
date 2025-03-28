@@ -4,7 +4,7 @@ from .models import *
 
 @admin.register(Vedios)
 class VedioAdmin(admin.ModelAdmin):
-    list_display =('video',)
+    list_display =('identifier',)
 class TeachSubjectInline(admin.TabularInline):
     model = UnitAndTutorial
     extra = 2 # how many rows to show
